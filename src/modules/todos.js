@@ -8,11 +8,14 @@ export const changeInput = input => ({
   input
 });
 
-let id = 3; // 초기상태에서 todo객체 2개 넣을꺼임
+let id = 3; // 초기상태에 todo객체 2개 넣을꺼임
 export const insert = text => ({
-  id: id++,
   type: INSERT,
-  text
+  todo:{
+    id: id++,
+    text,
+    done: false
+  }
 });
 
 export const toggle = id => ({
@@ -51,7 +54,7 @@ function todos(state = initialState, action) {
     case INSERT:
       return {
         ...state,
-        todo: state.todos.concat(action.todo)
+        todosㅊ: state.todos.concat(action.todo)
       };
     case TOGGLE:
       return {
